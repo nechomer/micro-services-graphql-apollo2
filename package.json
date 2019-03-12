@@ -1,0 +1,28 @@
+{
+  "name": "micro-services-graphql-apollo2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "wait-on": "^3.2.0"
+  },
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run run-api-gw\" \"npm run run-service-a\" \"npm run run-service-b\"",
+    "run-api-gw": "cd api_gw && wait-on tcp:4001 && wait-on tcp:4002 && npm run start",
+    "run-service-a": "cd service_A&&npm run start",
+    "run-service-b": "cd service_B&&npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nechomer/micro-services-graphql-apollo2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nechomer/micro-services-graphql-apollo2/issues"
+  },
+  "homepage": "https://github.com/nechomer/micro-services-graphql-apollo2#readme"
+}
