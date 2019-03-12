@@ -2,3 +2,4 @@
 api_gw/node_modules
 service_A/node_modules
 service_B/node_modules
+node_modules
