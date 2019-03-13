@@ -22,11 +22,11 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     helloFromB: () => 'Hello world!',
-    companyBWithApolloError: () => { throw new UserInputError('apollo error from depth 0', { name: "invalid name" });},
+    companyBWithApolloError: () => { throw new UserInputError('apollo error from depth 0', { invalidArgs: [ { name: "invalid name" } ] });},
     companyBWithDeepApolloError: () => ({}), //return empty object
   },
   CompanyB: {
-    employeeB: (src) => { throw new UserInputError('apollo error from depth 1', { name: "invalid name" });},
+    employeeB: (src) => { throw new UserInputError('apollo error from depth 1', { invalidArgs: [ { name: "invalid name" } ] });},
   }
 };
 
