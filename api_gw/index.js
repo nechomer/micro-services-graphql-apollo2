@@ -24,11 +24,11 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => 'Hello world!',
-    objectWithApolloError: () => { throw new UserInputError('apollo error from depth 0', { name: "invalid name" }) },
+    objectWithApolloError: () => { throw new UserInputError('apollo error from depth 0', { invalidArgs: [ { name: "invalid name" } ] }) },
     objectWithDeepApolloError: () => ({})
   },
   Object: {
-      name: () => { throw new UserInputError('apollo error from depth 1', { name: "invalid name" }) },
+      name: () => { throw new UserInputError('apollo error from depth 1', { invalidArgs: [ { name: "invalid name" } ] }) },
   }
 };
 
@@ -66,5 +66,5 @@ app.listen({ port }, () =>
       
       server.applyMiddleware({ app });
 
-    console.log(`🚀 API GW Service Graphiql is ready at http://localhost:${port}/graphiql`);
+    console.log(`🚀 API GW Service Playground is ready at http://localhost:${port}/graphql`);
 })();
